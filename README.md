@@ -26,3 +26,11 @@
   Utilizei o algoritimo de criptografia AES-GCM (AES-256-GCM), um algoritmo de criptografia simétrica. 
   Ele garante tanto a confidencialidade (os dados não podem ser lidos por pessoas não autorizadas) quanto a integridade (os dados não são alterados). 
 </p>
+
+<h3>Resultado do desafio:</h3>
+
+<p align="center">
+<img width="1167" height="331" alt="Image" src="https://github.com/user-attachments/assets/ff6915a4-0a6d-4f77-bb74-1a6bdb7da68b" />
+</p>
+
+
