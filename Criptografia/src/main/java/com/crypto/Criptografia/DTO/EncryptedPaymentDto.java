@@ -2,8 +2,8 @@ package com.crypto.Criptografia.dto;
 
 public class EncryptedPaymentDto {
     private Long id;
-    private String creditCardToken; // string Base64 armazenada no DB
-    private String userDocument;    // string Base64 armazenada no DB
+    private String creditCardToken; 
+    private String userDocument;    
     private Long paymentValue;
 
     public EncryptedPaymentDto(Long id, String creditCardToken, String userDocument, Long paymentValue) {
