@@ -23,7 +23,7 @@ public class PaymentController {
         this.repo = repo;
     }
 
-    // ----- Endpoints originais (valores descriptografados) -----
+
     @GetMapping
     public List<Payment> all() {
         return service.findAll();
@@ -56,16 +56,13 @@ public class PaymentController {
         return ResponseEntity.noContent().build();
     }
 
-    // ----- Novos endpoints: retornam os valores EXATAMENTE como estão no DB (criptografados) -----
-
-    // GET /api/payments/encrypted  -> lista com campos criptografados (Base64)
     @GetMapping("/encrypted")
     public List<EncryptedPaymentDto> allEncrypted() {
         List<Object[]> rows = repo.findAllRaw();
         return rows.stream().map(this::toEncryptedDto).collect(Collectors.toList());
     }
 
-    // GET /api/payments/encrypted/{id} -> um registro criptografado
+
     @GetMapping("/encrypted/{id}")
     public ResponseEntity<EncryptedPaymentDto> getEncryptedById(@PathVariable Long id) {
         Object[] row = repo.findRawById(id);
@@ -73,7 +70,6 @@ public class PaymentController {
         return ResponseEntity.ok(toEncryptedDto(row));
     }
 
-    // helper para converter Object[] (retorno da native query) em DTO
     private EncryptedPaymentDto toEncryptedDto(Object[] row) {
         Long id = row[0] == null ? null : ((Number) row[0]).longValue();
         String token = row[1] == null ? null : row[1].toString();
